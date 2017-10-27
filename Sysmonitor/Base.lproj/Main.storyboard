@@ -28,9 +28,45 @@
                                     <navigationItem title="设备监控" id="cbu-ik-KxH"/>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XII-5E-r4f">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XII-5E-r4f">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67P-Ic-wc6">
+                                        <rect key="frame" x="22" y="8" width="330" height="140"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-QO-VTY">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="QN3-cc-A9c"/>
+                                                    <constraint firstAttribute="width" constant="140" id="WE7-BY-Tdq"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vic-AD-yfK">
+                                                <rect key="frame" x="180" y="0.0" width="140" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="140" id="Fhf-EI-oud"/>
+                                                    <constraint firstAttribute="height" constant="140" id="l9u-fZ-B7x"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="330" id="0mR-ul-LyT"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vic-AD-yfK" secondAttribute="bottom" id="0og-uc-lvv"/>
+                                            <constraint firstItem="rnI-QO-VTY" firstAttribute="leading" secondItem="67P-Ic-wc6" secondAttribute="leading" id="5ss-w4-fdV"/>
+                                            <constraint firstAttribute="height" constant="140" id="A60-aj-Z0y"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vic-AD-yfK" secondAttribute="trailing" constant="10" id="Ev4-4f-Ad5"/>
+                                            <constraint firstItem="Vic-AD-yfK" firstAttribute="top" secondItem="67P-Ic-wc6" secondAttribute="top" id="L73-Ja-ePy"/>
+                                            <constraint firstAttribute="bottom" secondItem="rnI-QO-VTY" secondAttribute="bottom" id="NLb-Sk-QZ9"/>
+                                            <constraint firstItem="rnI-QO-VTY" firstAttribute="top" secondItem="67P-Ic-wc6" secondAttribute="top" id="h85-1U-j8J"/>
+                                            <constraint firstItem="Vic-AD-yfK" firstAttribute="leading" secondItem="rnI-QO-VTY" secondAttribute="trailing" constant="40" id="r0C-aS-IZ7"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.92467447920000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="67P-Ic-wc6" firstAttribute="top" secondItem="XII-5E-r4f" secondAttribute="top" constant="8" id="9kn-uh-MhK"/>
+                                    <constraint firstItem="67P-Ic-wc6" firstAttribute="centerX" secondItem="XII-5E-r4f" secondAttribute="centerX" id="sYZ-4N-3AN"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,6 +83,10 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="设备监控" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="batteryPanel" destination="Vic-AD-yfK" id="uJE-LR-bES"/>
+                        <outlet property="cpuView" destination="rnI-QO-VTY" id="te1-Kb-wSE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

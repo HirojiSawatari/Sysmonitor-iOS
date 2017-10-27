@@ -18,6 +18,8 @@
 		2B9732CC1FA09EE80073D90B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9732CA1FA09EE80073D90B /* LaunchScreen.storyboard */; };
 		2B9732D71FA09EE80073D90B /* SysmonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732D61FA09EE80073D90B /* SysmonitorTests.swift */; };
 		2B9732E21FA09EE80073D90B /* SysmonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732E11FA09EE80073D90B /* SysmonitorUITests.swift */; };
+		2BE3362F1FA32DE800D89A2F /* GaugeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3362E1FA32DE800D89A2F /* GaugeInterface.swift */; };
+		2BE336321FA34EA100D89A2F /* GetCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE336311FA34EA100D89A2F /* GetCPU.m */; };
 		2BFA13381FA0A7FC001A5250 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA13371FA0A7FC001A5250 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,10 @@
 		2B9732DD1FA09EE80073D90B /* SysmonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SysmonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9732E11FA09EE80073D90B /* SysmonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysmonitorUITests.swift; sourceTree = "<group>"; };
 		2B9732E31FA09EE80073D90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BE3362E1FA32DE800D89A2F /* GaugeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeInterface.swift; sourceTree = "<group>"; };
+		2BE336301FA34EA100D89A2F /* Sysmonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sysmonitor-Bridging-Header.h"; sourceTree = "<group>"; };
+		2BE336311FA34EA100D89A2F /* GetCPU.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCPU.m; sourceTree = "<group>"; };
+		2BE336331FA3507400D89A2F /* GetCPU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCPU.h; sourceTree = "<group>"; };
 		2BFA13371FA0A7FC001A5250 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +134,10 @@
 				2B9732CA1FA09EE80073D90B /* LaunchScreen.storyboard */,
 				2B9732CD1FA09EE80073D90B /* Info.plist */,
 				2B6AE77D1FA22B90003CD6D4 /* Gauge.swift */,
+				2BE3362E1FA32DE800D89A2F /* GaugeInterface.swift */,
+				2BE336311FA34EA100D89A2F /* GetCPU.m */,
+				2BE336301FA34EA100D89A2F /* Sysmonitor-Bridging-Header.h */,
+				2BE336331FA3507400D89A2F /* GetCPU.h */,
 			);
 			path = Sysmonitor;
 			sourceTree = "<group>";
@@ -218,6 +228,7 @@
 				TargetAttributes = {
 					2B9732BB1FA09EE80073D90B = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					2B9732D11FA09EE80073D90B = {
@@ -285,7 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B9732C41FA09EE80073D90B /* SecondViewController.swift in Sources */,
+				2BE3362F1FA32DE800D89A2F /* GaugeInterface.swift in Sources */,
 				2B9732C01FA09EE80073D90B /* AppDelegate.swift in Sources */,
+				2BE336321FA34EA100D89A2F /* GetCPU.m in Sources */,
 				2B6AE77E1FA22B90003CD6D4 /* Gauge.swift in Sources */,
 				2BFA13381FA0A7FC001A5250 /* AboutViewController.swift in Sources */,
 				2B9732C21FA09EE80073D90B /* FirstViewController.swift in Sources */,
@@ -454,12 +467,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q876X992YU;
 				INFOPLIST_FILE = Sysmonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hg.Crx.Sysmonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sysmonitor/Sysmonitor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,12 +485,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q876X992YU;
 				INFOPLIST_FILE = Sysmonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hg.Crx.Sysmonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sysmonitor/Sysmonitor-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
