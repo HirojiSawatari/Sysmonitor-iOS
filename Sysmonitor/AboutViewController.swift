@@ -30,7 +30,7 @@ class AboutViewController: UIViewController {
     }
     
     @IBAction func abtClick(_ sender: Any) {
-        let aboutAlert = UIAlertController(title: "关于", message: "Copyright © 2011-2017 Sawatari Inc. All rights reserved.",preferredStyle: .alert)
+        let aboutAlert = UIAlertController(title: "关于", message: "Copyright © 2011-2017 Sawatari Inc. All rights reserved.\nhttp://www.katouspace.com",preferredStyle: .alert)
         let aboutCancel = UIAlertAction(title: "确定", style: .destructive, handler: nil)
         aboutAlert.addAction(aboutCancel)
         self.present(aboutAlert, animated: true, completion: nil)

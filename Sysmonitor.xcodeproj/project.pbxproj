@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6AE77A1FA22A4B003CD6D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6AE7791FA22A3D003CD6D4 /* CoreGraphics.framework */; };
+		2B6AE77C1FA22A63003CD6D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6AE77B1FA22A58003CD6D4 /* QuartzCore.framework */; };
+		2B6AE77E1FA22B90003CD6D4 /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6AE77D1FA22B90003CD6D4 /* Gauge.swift */; };
 		2B9732C01FA09EE80073D90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732BF1FA09EE80073D90B /* AppDelegate.swift */; };
 		2B9732C21FA09EE80073D90B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732C11FA09EE80073D90B /* FirstViewController.swift */; };
 		2B9732C41FA09EE80073D90B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732C31FA09EE80073D90B /* SecondViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B6AE7791FA22A3D003CD6D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2B6AE77B1FA22A58003CD6D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2B6AE77D1FA22B90003CD6D4 /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
 		2B9732BC1FA09EE80073D90B /* Sysmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sysmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9732BF1FA09EE80073D90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9732C11FA09EE80073D90B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6AE77C1FA22A63003CD6D4 /* QuartzCore.framework in Frameworks */,
+				2B6AE77A1FA22A4B003CD6D4 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6AE7781FA22A3D003CD6D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B6AE77B1FA22A58003CD6D4 /* QuartzCore.framework */,
+				2B6AE7791FA22A3D003CD6D4 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2B9732B31FA09EE80073D90B = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +102,7 @@
 				2B9732D51FA09EE80073D90B /* SysmonitorTests */,
 				2B9732E01FA09EE80073D90B /* SysmonitorUITests */,
 				2B9732BD1FA09EE80073D90B /* Products */,
+				2B6AE7781FA22A3D003CD6D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +127,7 @@
 				2B9732C81FA09EE80073D90B /* Assets.xcassets */,
 				2B9732CA1FA09EE80073D90B /* LaunchScreen.storyboard */,
 				2B9732CD1FA09EE80073D90B /* Info.plist */,
+				2B6AE77D1FA22B90003CD6D4 /* Gauge.swift */,
 			);
 			path = Sysmonitor;
 			sourceTree = "<group>";
@@ -267,6 +286,7 @@
 			files = (
 				2B9732C41FA09EE80073D90B /* SecondViewController.swift in Sources */,
 				2B9732C01FA09EE80073D90B /* AppDelegate.swift in Sources */,
+				2B6AE77E1FA22B90003CD6D4 /* Gauge.swift in Sources */,
 				2BFA13381FA0A7FC001A5250 /* AboutViewController.swift in Sources */,
 				2B9732C21FA09EE80073D90B /* FirstViewController.swift in Sources */,
 			);

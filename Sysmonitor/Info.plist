@@ -51,5 +51,24 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>sysmonitor.home</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>访问官网</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>3Dtouch2</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>sysmonitor.about</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>关于</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>3Dtouch</string>
+		</dict>
+	</array>
 </dict>
 </plist>

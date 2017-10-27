@@ -17,19 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="112.5" y="312" width="150.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="90.5" y="363" width="194.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RwN-ky-xz9">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.25411334629999999" green="0.27937904000000002" blue="0.76867187020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -41,17 +28,21 @@
                                     <navigationItem title="设备监控" id="cbu-ik-KxH"/>
                                 </items>
                             </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XII-5E-r4f">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="0.92467447920000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="XII-5E-r4f" secondAttribute="trailing" id="Aq4-hs-rZ5"/>
                             <constraint firstItem="RwN-ky-xz9" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="BNR-GQ-NCN"/>
-                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="RwN-ky-xz9" secondAttribute="bottom" constant="248" id="bbH-kX-le8"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
+                            <constraint firstItem="XII-5E-r4f" firstAttribute="top" secondItem="RwN-ky-xz9" secondAttribute="bottom" id="MLP-bX-Zq7"/>
+                            <constraint firstItem="XII-5E-r4f" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="T5U-Cu-Ncw"/>
                             <constraint firstItem="RwN-ky-xz9" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="dE7-Q0-RI8"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="XII-5E-r4f" secondAttribute="bottom" id="e2k-j7-uqu"/>
                             <constraint firstItem="RwN-ky-xz9" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="nJy-nI-hyp"/>
+                            <constraint firstItem="XII-5E-r4f" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="xVh-ST-3SK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -59,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="-684"/>
+            <point key="canvasLocation" x="1029.5999999999999" y="-684.10794602698661"/>
         </scene>
         <!--设备信息-->
         <scene sceneID="wg7-f3-ORb">
@@ -152,11 +143,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwq-qS-HxK">
-                                        <rect key="frame" x="8" y="165" width="359" height="30"/>
+                                        <rect key="frame" x="8" y="165" width="359" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.23974840779906037" blue="0.10476476620891462" alpha="0.59328235035211263" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2Xm-Nc-9jg"/>
-                                            <constraint firstAttribute="height" constant="30" id="St3-jy-mWc"/>
+                                            <constraint firstAttribute="height" constant="40" id="uFH-0p-1a1"/>
                                         </constraints>
                                         <state key="normal" title="退出">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
