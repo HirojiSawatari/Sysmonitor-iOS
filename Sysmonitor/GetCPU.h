@@ -13,9 +13,9 @@
 
 @interface GetCPU : NSObject
 
-+ (CGFloat)usedMemoryInMB;
+- (CGFloat)usedMemoryInMB;
 
-+ (CGFloat)cpuUsage;
+- (CGFloat)cpuUsage;
 
 @end
 

@@ -15,7 +15,7 @@ let MAXOFFSETANGLE : Float = 120.0
 //初始化指针偏移量
 let POINTEROFFSET : Float = 90.0
 //最大显示数值
-let MAXVALUE : Float = 200.0
+let MAXVALUE : Float = 100.0
 //大格子间的分度数目
 let CELLMARKNUM : Int = 5
 //大格子数目

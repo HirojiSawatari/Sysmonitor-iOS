@@ -11,12 +11,12 @@
 
 @implementation GetCPU : NSObject 
 
-+ (CGFloat)usedMemoryInMB{
+- (CGFloat)usedMemoryInMB{
     vm_size_t memory = usedMemory();
     return memory / 1000.0 / 1000.0;
 }
 
-+ (CGFloat)cpuUsage{
+- (CGFloat)cpuUsage{
     float cpu = cpu_usage();
     return cpu;
 }
