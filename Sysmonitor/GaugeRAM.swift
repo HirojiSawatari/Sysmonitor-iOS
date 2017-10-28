@@ -1,39 +1,40 @@
 //
-//  Gauge.swift
+//  GaugeRAM.swift
 //  Sysmonitor
 //
-//  Created by 何韬 on 2017/10/26.
+//  Created by 何韬 on 2017/10/28.
 //  Copyright © 2017年 何韬. All rights reserved.
 //
 
+// RAM定制表盘
 import Foundation
 import QuartzCore
 import UIKit
 
 //最大偏转角度（逆时针）
-let MAXOFFSETANGLE : Float = 120.0
+let MAXOFFSETANGLE2 : Float = 90.0
 //初始化指针偏移量
-let POINTEROFFSET : Float = 90.0
+let POINTEROFFSET2 : Float = 90.0
 //最大显示数值
-let MAXVALUE : Float = 100.0
+let MAXVALUE2 : Float = 100.0
 //大格子间的分度数目
-let CELLMARKNUM : Int = 5
+let CELLMARKNUM2 : Int = 5
 //大格子数目
-let CELLNUM : Int = 5
+let CELLNUM2 : Int = 5
 //表盘中心显示的文字
-let GAUGESTRING : String = "单位:Km/h"
+let GAUGESTRING2 : String = "单位:Km/h"
 //缺省的表盘尺寸（正方形）
-let DEFLUATSIZE : Int =  300
+let DEFLUATSIZE2 : Int =  300
 
-struct GaugeParam{
-    var maxNum: Float = MAXVALUE
+struct GaugeParamRAM{
+    var maxNum: Float = MAXVALUE2
     var minNum: Float = 0.00
     
-    var maxAngle: Float = MAXOFFSETANGLE
-    var minAngle: Float = -MAXOFFSETANGLE
+    var maxAngle: Float = MAXOFFSETANGLE2
+    var minAngle: Float = -MAXOFFSETANGLE2
     
     var gaugeValue: Float = 0.00
-    var gaugeAngle: Float = -MAXOFFSETANGLE
+    var gaugeAngle: Float = -MAXOFFSETANGLE2
     var frame: CGRect
     
     var angleperValue: Float{
@@ -43,7 +44,7 @@ struct GaugeParam{
     }
     var scaleNum: Float{
         get{
-            return (Float(DEFLUATSIZE)/Float(self.frame.size.width))
+            return (Float(DEFLUATSIZE2)/Float(self.frame.size.width))
         }
     }
     
@@ -54,23 +55,23 @@ struct GaugeParam{
 }
 
 
-class GaugePanel : UIView {
+class GaugePanelRAM : UIView {
     var context: CGContext!
     var gaugeView: UIImage!
     var pointer: UIImageView!
     var frameCurr: CGRect!
     var labelArray: NSMutableArray!
-    var gv: GaugeParam!
+    var gv: GaugeParamRAM!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
     
     override init(frame: CGRect) {
-        self.pointer = UIImageView(image: UIImage(named: "needle"))
-        self.gaugeView = UIImage(named: "cpuPanel")
+        self.pointer = UIImageView(image: UIImage(named: "needle_ram"))
+        self.gaugeView = UIImage(named: "ramPanel")
         self.frameCurr = frame
-        self.gv = GaugeParam(frame: frame)
+        self.gv = GaugeParamRAM(frame: frame)
         super.init(frame: frame)
         self.setFrameInit(frame: frame)
     }
@@ -87,107 +88,10 @@ class GaugePanel : UIView {
         pointer.layer.anchorPoint = CGPoint(x: 0.50, y: 0.78)
         pointer.transform = CGAffineTransform(scaleX: CGFloat(gv.scaleNum), y: CGFloat(gv.scaleNum))
         self.addSubview(pointer)
-        // self.setTextLabel(labelNum: CELLNUM)
+        // self.setTextLabel(labelNum: CELLNUM2)
         //经过测试CABaseAnimation是按最短路径不能使用，下同
-        pointer.layer.transform = CATransform3DMakeRotation(self.transToRadian(angle: CGFloat(-MAXOFFSETANGLE)) , 0, 0, 1)
+        pointer.layer.transform = CATransform3DMakeRotation(self.transToRadian(angle: CGFloat(-MAXOFFSETANGLE2)) , 0, 0, 1)
     }
-    
-    /*
-    //设置文本表盘标记
-    func setTextLabel(labelNum:Int){
-        labelArray = NSMutableArray(capacity: labelNum)
-        var textDis: CGFloat = CGFloat((gv.maxNum - gv.minNum)/Float(labelNum))
-        var angelDis: CGFloat = CGFloat(Float(gv.maxAngle-gv.minAngle)/Float(labelNum))
-        var radius: CGFloat
-        if self.frame.width > 250{
-            radius = CGFloat(Float(self.center.x - CGFloat(55/gv.scaleNum))/Float(gv.scaleNum))
-        } else if self.frame.width > 200 {
-            radius = CGFloat(Float(self.center.x - CGFloat(35/gv.scaleNum))/Float(gv.scaleNum))
-        } else if self.frame.width > 150{
-            radius = CGFloat(Float(self.center.x - CGFloat(25/gv.scaleNum))/Float(gv.scaleNum))
-        } else {
-            radius = CGFloat(Float(self.center.x - CGFloat(8/gv.scaleNum))/Float(gv.scaleNum))
-        }
-        
-        var currText: CGFloat = 0.00
-        let centerPoint: CGPoint = self.center
-        var currAngle:CGFloat
-        
-        //添加仪表单位
-        var title = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
-        title.autoresizesSubviews = true
-        title.textAlignment = NSTextAlignment.center
-        title.text = GAUGESTRING
-        title.font = UIFont(name:"Helvetica", size: CGFloat(18.0/gv.scaleNum))
-        title.center = CGPoint(x: centerPoint.x, y: centerPoint.y+CGFloat(60/gv.scaleNum))
-        title.textColor = UIColor.white
-        title.backgroundColor = UIColor.clear
-        labelArray.add(title)
-        self.addSubview(title)
-        
-        for i in 0 ... labelNum {
-            //文本位置颜色
-            currAngle = CGFloat(gv.minAngle) + CGFloat(i)*angelDis - CGFloat(POINTEROFFSET)
-            currText = CGFloat(gv.minNum) + CGFloat(i)*textDis
-            var label = UILabel(frame: CGRect(x: 0 , y: 0 , width: 30, height: 50))
-            label.autoresizesSubviews = true
-            label.textColor = UIColor.white
-            label.backgroundColor = UIColor.clear
-            label.font = UIFont(name:"Helvetica", size: CGFloat(16.0/gv.scaleNum))
-            
-            //文本对齐
-            if i < labelNum/2 {
-                label.textAlignment = NSTextAlignment.left
-            } else if i == labelNum/2 {
-                label.textAlignment = NSTextAlignment.center
-            } else {
-                label.textAlignment = NSTextAlignment.right
-            }
-            label.text = "\(Int(currText))"
-            
-            label.center = CGPoint(x: centerPoint.x + self.parseToX(radius: radius, angle: currAngle), y: centerPoint.y + self.parseToY(radius: radius, angle: currAngle))
-            
-            labelArray.add(label)
-            self.addSubview(label)
-        }
-        
-    }
-    */
-    
-    /*
-    //设置表盘刻度
-    func setLineMark(labelNum:Int){
-        var angelDis: CGFloat = CGFloat(Float(gv.maxAngle-gv.minAngle)/Float(labelNum))
-        var radius: CGFloat
-        var beginPoint: CGPoint
-        var endPoint: CGPoint
-        
-        if self.frame.width > 250 {
-            radius = CGFloat(Float(self.center.x - CGFloat(15*gv.scaleNum)))
-        } else if self.frame.width > 200 {
-            radius = CGFloat(Float(self.center.x - CGFloat(12*gv.scaleNum)))
-        } else if self.frame.width > 150 {
-            radius = CGFloat(Float(self.center.x - CGFloat(7*gv.scaleNum)))
-        } else  {
-            radius = CGFloat(Float(self.center.x - CGFloat(3*gv.scaleNum)))
-        }
-        
-        let centerPoint: CGPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
-        var currAngle:CGFloat
-        for i in 0 ... labelNum {
-            currAngle = CGFloat(gv.minAngle) + CGFloat(i)*angelDis - CGFloat(POINTEROFFSET)
-            if i > labelNum*2/3 {
-                context.setStrokeColor(UIColor(red: 1, green: 0, blue: 0, alpha: 0.8).cgColor)
-            } else if i > labelNum/3 {
-                context.setStrokeColor(UIColor(red: 1, green: 1, blue: 0, alpha: 0.8).cgColor)
-            } else {
-                context.setStrokeColor(UIColor(red: 0, green: 1, blue: 0, alpha: 0.8).cgColor)
-            }
-            
-        }
-        
-    }
-     */
     
     //旋转到指定的值
     func setCurrGaugeValue(value: CGFloat,animation: Bool){
@@ -281,8 +185,9 @@ class GaugePanel : UIView {
         context.setFillColor((self.backgroundColor?.cgColor)!)
         context.fill(rect)
         self.gaugeView?.draw(in: self.bounds)
-        // self.setLineMark(labelNum: CELLNUM * CELLMARKNUM)
+        // self.setLineMark(labelNum: CELLNUM2 * CELLMARKNUM2)
         context.strokePath()
     }
     
 }
+

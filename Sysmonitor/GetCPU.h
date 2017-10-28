@@ -17,6 +17,14 @@
 
 - (CGFloat)cpuUsage;
 
+- (long long)getTotalMemorySize;
+
+- (long long)getAvailableMemorySize;
+
+- (long long)getTotalDiskSize;
+
+- (long long)getAvailableDiskSize;
+
 @end
 
 #endif /* GetCPU_h */

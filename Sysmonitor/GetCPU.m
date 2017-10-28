@@ -9,6 +9,8 @@
 #import "GetCPU.h"
 #import "mach/mach.h"
 
+#include "sys/mount.h"
+
 @implementation GetCPU : NSObject 
 
 - (CGFloat)usedMemoryInMB{
@@ -20,6 +22,47 @@
     float cpu = cpu_usage();
     return cpu;
 }
+
+// 总内存
+- (long long)getTotalMemorySize{
+    return [NSProcessInfo processInfo].physicalMemory;
+}
+
+// 可用内存
+- (long long)getAvailableMemorySize{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+    if (kernReturn != KERN_SUCCESS){
+        return NSNotFound;
+    }
+    return ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));
+}
+
+// 总ROM
+- (long long)getTotalDiskSize
+{
+    struct statfs buf;
+    unsigned long long freeSpace = -1;
+    if (statfs("/var", &buf) >= 0)
+    {
+        freeSpace = (unsigned long long)(buf.f_bsize * buf.f_blocks);
+    }
+    return freeSpace;
+}
+
+// 可用ROM
+- (long long)getAvailableDiskSize
+{
+    struct statfs buf;
+    unsigned long long freeSpace = -1;
+    if (statfs("/var", &buf) >= 0)
+    {
+        freeSpace = (unsigned long long)(buf.f_bsize * buf.f_bavail);
+    }
+    return freeSpace;
+}
+
 vm_size_t usedMemory(void) {
     struct task_basic_info info;
     mach_msg_type_number_t size = sizeof(info);

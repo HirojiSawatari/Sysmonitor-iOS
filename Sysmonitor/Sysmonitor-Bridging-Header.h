@@ -3,3 +3,4 @@
 //
 
 #import "GetCPU.h"
+#import "CustomLabel.h"

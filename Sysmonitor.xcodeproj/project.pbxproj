@@ -10,6 +10,7 @@
 		2B6AE77A1FA22A4B003CD6D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6AE7791FA22A3D003CD6D4 /* CoreGraphics.framework */; };
 		2B6AE77C1FA22A63003CD6D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6AE77B1FA22A58003CD6D4 /* QuartzCore.framework */; };
 		2B6AE77E1FA22B90003CD6D4 /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6AE77D1FA22B90003CD6D4 /* Gauge.swift */; };
+		2B6CCCB01FA4D132006B54CC /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CCCAF1FA4D132006B54CC /* CustomLabel.m */; };
 		2B9732C01FA09EE80073D90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732BF1FA09EE80073D90B /* AppDelegate.swift */; };
 		2B9732C21FA09EE80073D90B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732C11FA09EE80073D90B /* FirstViewController.swift */; };
 		2B9732C41FA09EE80073D90B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732C31FA09EE80073D90B /* SecondViewController.swift */; };
@@ -18,6 +19,7 @@
 		2B9732CC1FA09EE80073D90B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9732CA1FA09EE80073D90B /* LaunchScreen.storyboard */; };
 		2B9732D71FA09EE80073D90B /* SysmonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732D61FA09EE80073D90B /* SysmonitorTests.swift */; };
 		2B9732E21FA09EE80073D90B /* SysmonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9732E11FA09EE80073D90B /* SysmonitorUITests.swift */; };
+		2BBF962A1FA48822008B6B10 /* GaugeRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF96291FA48822008B6B10 /* GaugeRAM.swift */; };
 		2BE3362F1FA32DE800D89A2F /* GaugeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3362E1FA32DE800D89A2F /* GaugeInterface.swift */; };
 		2BE336321FA34EA100D89A2F /* GetCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE336311FA34EA100D89A2F /* GetCPU.m */; };
 		2BFA13381FA0A7FC001A5250 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA13371FA0A7FC001A5250 /* AboutViewController.swift */; };
@@ -44,6 +46,8 @@
 		2B6AE7791FA22A3D003CD6D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2B6AE77B1FA22A58003CD6D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2B6AE77D1FA22B90003CD6D4 /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
+		2B6CCCAE1FA4D0F8006B54CC /* CustomLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		2B6CCCAF1FA4D132006B54CC /* CustomLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		2B9732BC1FA09EE80073D90B /* Sysmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sysmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9732BF1FA09EE80073D90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9732C11FA09EE80073D90B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 		2B9732DD1FA09EE80073D90B /* SysmonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SysmonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9732E11FA09EE80073D90B /* SysmonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysmonitorUITests.swift; sourceTree = "<group>"; };
 		2B9732E31FA09EE80073D90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BBF96291FA48822008B6B10 /* GaugeRAM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeRAM.swift; sourceTree = "<group>"; };
 		2BE3362E1FA32DE800D89A2F /* GaugeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeInterface.swift; sourceTree = "<group>"; };
 		2BE336301FA34EA100D89A2F /* Sysmonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sysmonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		2BE336311FA34EA100D89A2F /* GetCPU.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCPU.m; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 				2BE336311FA34EA100D89A2F /* GetCPU.m */,
 				2BE336301FA34EA100D89A2F /* Sysmonitor-Bridging-Header.h */,
 				2BE336331FA3507400D89A2F /* GetCPU.h */,
+				2BBF96291FA48822008B6B10 /* GaugeRAM.swift */,
+				2B6CCCAE1FA4D0F8006B54CC /* CustomLabel.h */,
+				2B6CCCAF1FA4D132006B54CC /* CustomLabel.m */,
 			);
 			path = Sysmonitor;
 			sourceTree = "<group>";
@@ -297,11 +305,13 @@
 			files = (
 				2B9732C41FA09EE80073D90B /* SecondViewController.swift in Sources */,
 				2BE3362F1FA32DE800D89A2F /* GaugeInterface.swift in Sources */,
+				2BBF962A1FA48822008B6B10 /* GaugeRAM.swift in Sources */,
 				2B9732C01FA09EE80073D90B /* AppDelegate.swift in Sources */,
 				2BE336321FA34EA100D89A2F /* GetCPU.m in Sources */,
 				2B6AE77E1FA22B90003CD6D4 /* Gauge.swift in Sources */,
 				2BFA13381FA0A7FC001A5250 /* AboutViewController.swift in Sources */,
 				2B9732C21FA09EE80073D90B /* FirstViewController.swift in Sources */,
+				2B6CCCB01FA4D132006B54CC /* CustomLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
